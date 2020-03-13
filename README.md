@@ -1,8 +1,13 @@
-# Rick & Morty meet Apollo Client
+# Rick & Morty Front-End
 
-This is a demo application built with [Rick & Morty API](https://rickandmortyapi.com/) to show the power of Apollo Client within the Vue application.
+Isto é uma aplicação de demonstração criado com a [API - Rick & Morty](https://rickandmortyapi.com/) para aprender um pouco sobre o Apollo Client utilzando Vue no lado do client.
 
-- [`master`](https://github.com/NataliaTepluhina/apollo-presentation) - a finished example with local state management on Apollo Client
-- [`initial`](https://github.com/NataliaTepluhina/apollo-presentation/tree/initial) - starting code that already has application UI, correct webpack loaders, set up Apollo Client and has all queries/mutations on `graphql` folder. However, you still need to write Apollo code in Vue components, as well as create correct resolvers for local queries
-- [`rest`](https://github.com/NataliaTepluhina/apollo-presentation/tree/rest) - fancy experiment with using REST API endpoint wrapped with Apollo Client
-- [`mock`](https://github.com/NataliaTepluhina/apollo-presentation/tree/mock) - mocking API response with Apollo Resolver
+
+Código da API em GRAPHQL [Rick  & Morty](https://github.com/afuh/rick-and-morty-api)
+
+## 🚀 Funções Implementadas
+
+- Listagem dos Personagens (client e servidor)
+- Excluir Personagens (client)
+- Adicionar aos favoritos (client)
+- Remover dos favoritos (client)
