@@ -8,6 +8,12 @@ Código da API em GRAPHQL [Rick  & Morty](https://github.com/afuh/rick-and-morty
 ## 🚀 Funções Implementadas
 
 - Listagem dos Personagens (client e servidor)
-- Excluir Personagens (client)
 - Adicionar aos favoritos (client)
 - Remover dos favoritos (client)
+
+
+## ToDo
+
+- [] Listar Episódios
+- [] Editar Episódios
+- [] Excluir Episódios

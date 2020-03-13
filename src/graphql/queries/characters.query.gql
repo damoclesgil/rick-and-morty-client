@@ -5,6 +5,7 @@ query Characters {
       name
       location {
         name
+        
       }
       image
     }
