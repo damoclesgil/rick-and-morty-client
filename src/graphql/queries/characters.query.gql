@@ -1,5 +1,5 @@
 query Characters {
-  characters @client {
+  characters{
     results {
       id
       name
