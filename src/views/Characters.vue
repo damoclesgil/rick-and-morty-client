@@ -1,9 +1,15 @@
 <template>
   <b-row class="py-3">
-    <div v-if="loading" class="spinner w-100">
-      <b-spinner label="Spinning"></b-spinner>
-    </div>
-    <template v-else>
+<b-button
+variant="info"
+@click="fetchCharacters"
+>
+GetCharacters
+</b-button>
+    <!-- <div v-if="loading" class="spinner w-100"> -->
+      <!-- <b-spinner label="Spinning"></b-spinner> -->
+    <!-- </div> -->
+    <template >
       <b-col cols="3" v-for="character in characters" :key="character.id">
         <b-card
           :title="character.name"
@@ -11,17 +17,17 @@
           :img-alt="character.name"
           img-top
           class="mb-2"
-          :class="{ colored: isInFavorites(character) }"
         >
+          <!-- :class="{ colored: isInFavorites(character) }" -->
           <b-card-text>
             {{ character.location.name }}
           </b-card-text>
           <b-button
             variant="info"
-            :disabled="isInFavorites(character)"
             @click="addToFavorites({ character })"
             >Add to favorites</b-button
           >
+            <!-- :disabled="isInFavorites(character)" -->
         </b-card>
       </b-col>
     </template>
@@ -29,22 +35,48 @@
 </template>
 
 <script>
-import { useQuery, useResult, useMutation } from '@vue/apollo-composable';
+import { useMutation } from '@vue/apollo-composable';
 import charactersQuery from '../graphql/queries/characters.query.gql';
-import favoriteCharactersQuery from '../graphql/queries/favoriteCharacters.query.gql';
+import { fetchCharacters } from '../helpers/characters.js'
 import addToFavoritesMutation from '../graphql/queries/addToFavorites.mutation.gql';
+// import favoriteCharactersQuery from '../graphql/queries/favoriteCharacters.query.gql';
+// import characters from '../graphql/queries/characters.query.gql'
+// import characters from '../graphql/queries/characters.query.js'
+import { apolloClient } from '../graphql/client'
+import { useLazyQuery } from '@apollo/client';
+import { ref } from '@vue/composition-api'
+
 export default {
   setup() {
-    const { result: charactersResult, loading } = useQuery(charactersQuery);
+    const characters = ref([])
 
-    const characters = useResult(
-      charactersResult,
-      null,
-      data => data.characters.results
-    );
+    const { getData }  = useLazyQuery(charactersQuery);
+
+
+    // const { result: charactersResult, loading } = useQuery(charactersQuery);
+
+    // const characters = useResult(
+    //   charactersResult,
+    //   null,
+    //   data => data.characters.results
+    // );
+    const fetchCharacters = async () => {
+    try {
+     const result = await apolloClient.query({
+       query: charactersQuery
+     })
+     console.log(apolloClient)
+      characters.value = result.data.characters.results
+  } catch (error) {
+    console.error(error)
+  }
+    }
+
+  
+    // console.log(fetchCharacters)
 
     // Where are favorite characters? (╯°□°)╯︵ ┻━┻
-    const { result: favResult } = useQuery(favoriteCharactersQuery);
+    // const { result: favResult } = useQuery(favoriteCharactersQuery);
 
     const isInFavorites = character =>
       favResult.value.favoriteCharacters.includes(character); // Yes, this is placeholder
@@ -53,7 +85,8 @@ export default {
 
     return {
       characters,
-      loading,
+      fetchCharacters,
+      getData,
       addToFavorites,
       isInFavorites
     };
