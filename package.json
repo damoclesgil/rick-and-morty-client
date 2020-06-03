@@ -7,24 +7,23 @@
     "build": "vue-cli-service build"
   },
   "dependencies": {
-    "@apollo/client": "^3.0.0-beta.49",
+    "@apollo/client": "^3.0.0-rc.0",
     "@vue/apollo-composable": "^4.0.0-alpha.8",
     "@vue/composition-api": "^0.5.0",
     "axios": "^0.19.2",
-    "bootstrap-vue": "^2.0.4",
+    "bootstrap-vue": "^2.15.0",
     "core-js": "^3.6.5",
     "graphql": "^15.0.0",
     "vue": "^2.6.11",
-    "vue-router": "^3.2.0"
+    "vue-router": "^3.3.2"
   },
   "devDependencies": {
-    "@babel/polyfill": "^7.6.0",
+    "@babel/polyfill": "^7.10.1",
     "@vue/cli-plugin-babel": "^4.1.0",
     "@vue/cli-service": "^4.1.0",
     "bootstrap": "^4.3.1",
     "mutationobserver-shim": "^0.3.3",
     "react": "^16.13.1",
-    "vue-cli-plugin-bootstrap-vue": "^0.5.0",
     "vue-template-compiler": "^2.6.10"
   }
 }
