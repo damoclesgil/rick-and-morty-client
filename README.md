@@ -18,4 +18,6 @@ Código da API em GRAPHQL [Rick  & Morty](https://github.com/afuh/rick-and-morty
 - [] Editar Episódios
 - [] Excluir Episódios
 
-<iframe src="https://www.panelinha.com.br/receita/arroz-branco-para-4" width="400" height="400"> </iframe>
+<div>
+  <iframe src="https://www.panelinha.com.br/receita/arroz-branco-para-4" width="400" height="400"> </iframe>
+</div>
