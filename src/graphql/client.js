@@ -14,18 +14,19 @@ const resolvers = {
       return charactersMock;
     },
   },
-  // Mutation: {
-  addToFavorites(_, { character }, { cache }) {
-    const data = cache.readQuery({ query: favoriteCharactersQuery });
-    data.favoriteCharacters = [...data.favoriteCharacters, character];
-    cache.writeQuery({ query: favoriteCharactersQuery, data });
-  },
-  removeFromFavorites(_, { id }, { cache }) {
-    const data = cache.readQuery({ query: favoriteCharactersQuery });
-    data.favoriteCharacters = data.favoriteCharacters.filter(
-      (character) => character.id !== id
-    );
-    cache.writeQuery({ query: favoriteCharactersQuery, data });
+  Mutation: {
+    addToFavorites(_, { character }, { cache }) {
+      const data = cache.readQuery({ query: favoriteCharactersQuery });
+      data.favoriteCharacters = [...data.favoriteCharacters, character];
+      cache.writeQuery({ query: favoriteCharactersQuery, data });
+    },
+    removeFromFavorites(_, { id }, { cache }) {
+      const data = cache.readQuery({ query: favoriteCharactersQuery });
+      data.favoriteCharacters = data.favoriteCharacters.filter(
+        (character) => character.id !== id
+      );
+      cache.writeQuery({ query: favoriteCharactersQuery, data });
+    },
   },
 };
 
