@@ -1,7 +1,5 @@
 <template>
   <b-row class="py-3">
-    <!-- <b-button variant="info" @click="getData">GetData </b-button> -->
-
     <template>
       <b-col cols="3" v-for="character in characters" :key="character.id">
         {{ character.name }}
@@ -13,7 +11,6 @@
 <script>
 import { useQuery, useResult } from "@vue/apollo-composable";
 import charactersQuery from "../graphql/queries/characters.query.gql";
-// import { onMounted } from "@vue/composition-api";
 
 export default {
   setup() {
