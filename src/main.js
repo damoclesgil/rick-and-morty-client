@@ -1,22 +1,23 @@
 import '@babel/polyfill';
 import 'mutationobserver-shim';
-import Vue from 'vue';
-import './plugins/bootstrap-vue';
+import { createApp } from 'vue';
+import  BootstrapVue from './plugins/bootstrap-vue';
 import App from './App.vue';
 import router from './router';
-import VueCompositionApi from '@vue/composition-api';
-import { provide } from '@vue/composition-api';
+// import VueCompositionApi from '@vue/composition-api';
+// import { provide } from '@vue/composition-api';
 import { DefaultApolloClient } from '@vue/apollo-composable';
 import { apolloClient } from './graphql/client';
 
-Vue.use(VueCompositionApi);
+// createApp({
+//   setup() {
+//     provide(DefaultApolloClient, apolloClient);
+//   },
 
-Vue.config.productionTip = false;
+//   render: () => h(App)
+// }).use(router, VueCompositionApi).mount('#app');
 
-new Vue({
-  setup() {
-    provide(DefaultApolloClient, apolloClient);
-  },
-  router,
-  render: h => h(App)
-}).$mount('#app');
+const app = createApp(App);
+app.provide(DefaultApolloClient, apolloClient);
+app.use(router, VueCompositionApi, BootstrapVue);
+app.mount("#app");
