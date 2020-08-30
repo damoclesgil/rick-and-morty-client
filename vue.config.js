@@ -6,5 +6,12 @@ module.exports = {
       .use('graphql-tag/loader')
       .loader('graphql-tag/loader')
       .end();
-  }
+  },
+  // configureWebpack: {
+  //   resolve: {
+  //     alias: {
+  //       vue$: 'vue/dist/vue.esm-bundler.js'
+  //     }
+  //   }
+  // }
 };

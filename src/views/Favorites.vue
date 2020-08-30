@@ -1,33 +1,32 @@
 <template>
-  <b-row class="py-3">
+  <div class="py-3">
     <h1 v-if="!favoriteCharacters.length">
       You don't have favorite characters
     </h1>
     <template v-else>
-      <b-col
-        cols="3"
+      <div
         v-for="character in favoriteCharacters"
         :key="character.id"
       >
-        <b-card
+        <div
           :title="character.name"
           :img-src="character.image"
           :img-alt="character.name"
           img-top
           class="mb-2"
         >
-          <b-card-text>
+          <p>
             {{ character.location.name }}
-          </b-card-text>
-          <b-button
+          </p>
+          <button
             variant="info"
-            @click="removeFromFavorites({ id: character.id })"
-            >Remove from favorites</b-button
-          >
-        </b-card>
-      </b-col>
+            @click="removeFromFavorites({ id: character.id })">
+            Remove from favorites
+            </button>
+        </div>
+      </div>
     </template>
-  </b-row>
+  </div>
 </template>
 
 <script>
@@ -39,9 +38,7 @@ export default {
     const { result: favoritesResult } = useQuery(favoriteCharactersQuery);
     const favoriteCharacters = useResult(favoritesResult);
 
-    const { mutate: removeFromFavorites } = useMutation(
-      removeFromFavoritesMutation
-    );
+    const { mutate: removeFromFavorites } = useMutation(removeFromFavoritesMutation);
 
     return { favoriteCharacters, removeFromFavorites };
   }

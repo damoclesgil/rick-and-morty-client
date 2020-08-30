@@ -1,11 +1,11 @@
 <template>
-  <b-row class="py-3">
+  <div class="py-3">
     <template>
-      <b-col cols="3" v-for="character in characters" :key="character.id">
+      <div v-for="character in characters" :key="character.id">
         {{ character.name }}
-      </b-col>
+      </div>
     </template>
-  </b-row>
+  </div>
 </template>
 
 <script>

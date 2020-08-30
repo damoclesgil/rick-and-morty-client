@@ -1,17 +1,17 @@
 <template>
   <div id="app">
-    <b-navbar type="dark" variant="info">
-      <b-navbar-brand to="/">Rick & Morty</b-navbar-brand>
-      <b-navbar-nav class="ml-auto">
-        <b-nav-item to="/" :active="$route.path === '/'">Characters</b-nav-item>
-        <b-nav-item to="/favorites" :active="$route.path === '/favorites'"
-          >Favorites</b-nav-item
+    <div type="dark" variant="info">
+      <div to="/">Rick & Morty</div>
+      <div class="ml-auto">
+        <router-link to="/" :active="$route.path === '/'">Characters</router-link>
+        <router-link to="/favorites" :active="$route.path === '/favorites'"
+          >Favorites</router-link
         >
-      </b-navbar-nav>
-    </b-navbar>
-    <b-container>
+      </div>
+    </div>
+    <div>
       <router-view />
-    </b-container>
+    </div>
   </div>
 </template>
 
